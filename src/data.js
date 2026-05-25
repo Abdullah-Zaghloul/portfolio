@@ -85,19 +85,19 @@ export const projects = [
     },
     tags: ["Flutter", "Dart", "REST API", "SharedPrefs"],
   },
-  {
-    icon: "fa-solid fa-gamepad",
-    link: "", // ← Replace with your GitHub/demo link later
-    en: {
-      title: "Unity FSM NPC AI System",
-      desc: "A Finite State Machine-based NPC behavior system in Unity covering patrol, chase, attack, and idle states with smooth transitions.",
-    },
-    ar: {
-      title: "نظام ذكاء NPC بـ FSM في Unity",
-      desc: "نظام سلوك NPC قائم على FSM في Unity يغطي حالات الدوريات، المطاردة، الهجوم، والخمول مع انتقالات سلسة.",
-    },
-    tags: ["Unity", "C#", "FSM", "AI"],
+{
+  icon: "fa-solid fa-file-invoice-dollar",
+  link: "", // ← ضع هنا رابط GitHub الخاص بالـ Workflow أو فيديو تجريبي لاحقاً
+  en: {
+    title: "AI-Powered Invoice Processing & Archiving Pipeline",
+    desc: "An advanced n8n automation system that monitors Google Drive for incoming invoices, extracts raw Arabic & English text, and utilizes Llama 3.3 (via Groq API) for semantic data parsing. The system dynamically creates monthly client-specific folders on Drive, logs transaction metadata to Google Sheets, and dispatches rich-format Telegram notifications instantly.",
   },
+  ar: {
+    title: "نظام معالجة وأرشفة الفواتير بالذكاء الاصطناعي",
+    desc: "نظام أتمتة متكامل مبني على منصة n8n لمراقبة الفواتير الواردة على Google Drive واستخراج النصوص باللغتين العربية والإنجليزية، ثم تحليلها سياقياً بموديل Llama 3.3 عبر Groq API. يقوم النظام تلقائياً بإنشاء مجلدات ديناميكية للشركات حسب التاريخ، وتدوين كافة البيانات في Google Sheets مع إرسال إشعارات فورية ومنسقة عبر تليجرام.",
+  },
+  tags: ["n8n", "Llama 3.3 (Groq)", "Google Drive API", "Google Sheets API", "Telegram Bot API", "JavaScript"],
+},
   {
     icon: "fa-brands fa-python",
     link: "", // ← Replace with your GitHub/demo link later
