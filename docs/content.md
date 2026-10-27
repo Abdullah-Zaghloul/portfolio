@@ -9,6 +9,8 @@ Rules for content:
 
 Status key: ✅ done · 📝 draft, needs review · ❓ missing
 
+The 📝 drafts are the working copy for the build. Abdullah reviews the final wording on the built site in one session before launch ([roadmap.md](roadmap.md#before-launch-real-assets)), not section by section now.
+
 ---
 
 ## 0. Ground rules from Abdullah (2026-10-28)
@@ -41,12 +43,18 @@ The main call to action is WhatsApp.
 
 **Draft (AR):** أبني الأنظمة من داخل العمل نفسه. أدير عمليات المحتوى في عملي اليومي، فأنسّق بين المونتاج والتصميم والنشر على أكثر من منصة، وأرى أين يذهب وقت الفريق. وحين تتكرر مهمة، أحوّلها إلى نظام: لوحة متابعة تجهّز نفسها، أو رفع يتم وحده، أو بوابة كاملة تعمل عليها مؤسسة بأكملها.
 
-- **Photo:** ✅ yes, one professional photo in the About section, not the hero. ❓ Abdullah to provide it. The layout must still work without it.
-- **Education:** Software Industry & Multimedia, Faculty of Science, Alexandria University. ❓ Show the expected graduation year (2027) or not?
+- **Photo:** ✅ yes, one professional photo in the About section, not the hero. Deferred until after the rebuild: the build uses a neutral placeholder (a monogram or empty frame, never a photo of someone else) and the layout must still work without a photo.
+- **Education:** Software Industry & Multimedia, Faculty of Science, Alexandria University. No graduation year, on the site or the CV.
 - **Languages spoken:** not stated.
-- **Other About content (suggestions, ❓ to approve):**
-  - *How I work:* three or four short principles drawn from real practice. For example: understand the operation before building; agree on requirements in writing first (about a week with the academy's founder); deliver a working first version, then improve it; leave the system documented so others can run it.
-  - *Now:* one line on what Abdullah is working on at the moment, kept in site settings so it's easy to update.
+- **No "Now" line.** Dropped.
+- **How I work** (approved; each point comes from the academy project):
+
+| | English | Arabic |
+|---|---|---|
+| 1 | **Understand the work before building.** I start by learning how your team works today and where its time goes. | **أفهم العمل قبل أن أبني.** أبدأ بفهم طريقة عمل فريقك اليوم، وأين يذهب وقته. |
+| 2 | **Requirements agreed in writing.** We agree on what's needed, in writing, before building starts. | **متطلبات مكتوبة ومتفق عليها.** نتفق على المطلوب كتابةً قبل أن يبدأ البناء. |
+| 3 | **A working version first, then improvements.** You get a first version that works in a short time, and we improve it based on real use. | **نسخة تعمل أولًا، ثم نحسّنها.** تستلم نسخة أولى تعمل في وقت قصير، ثم نطوّرها على الاستخدام الفعلي. |
+| 4 | **Your data is protected.** Permissions for each role, daily backups and automated tests. | **بياناتك محمية.** صلاحيات لكل دور، ونسخ احتياطي يومي، واختبارات تلقائية. |
 
 ## 3. Experience 📝
 
@@ -87,7 +95,7 @@ For each project: a one-line summary, the problem, what was built, the stack, th
 - **Stack:** Next.js, TypeScript, Supabase (PostgreSQL), Tailwind CSS, Cloudflare Workers, GitHub Actions.
 - **Result:** in production since 25 October 2026, about four weeks after the first requirements meeting.
 - **Link:** none. The portal is behind a login and the repo is private.
-- **Visual:** an illustrated mockup with fictional data, drawn from screenshots Abdullah will share later.
+- **Visual:** an illustrated mockup with fictional data. Abdullah shares the screenshots after the rebuild; until then the build uses a placeholder mockup.
 - **Testimonial:** the founder's quote goes on this project (see section 6).
 - Mention that project 2 was built for the same academy, and link the two.
 
@@ -114,7 +122,7 @@ For each project: a one-line summary, the problem, what was built, the stack, th
 
 - **Real figures available:** about an hour saved on every weekly report and every video upload, and the portal live about four weeks after the first requirements meeting. A stats row only goes in if the design calls for one. No other numbers exist yet; don't add any.
 - **Testimonials belong to projects.** Each quote is shown on the project it's about, credited by role, not as a separate carousel. The content schema gets an optional testimonial on each project.
-- **First testimonial:** the academy's founder agreed to write one for project 1. Credit: "Founder, an international Quran academy" (AR: "مؤسس أكاديمية دولية لتحفيظ القرآن الكريم"). ❓ waiting for the real text.
+- **First testimonial:** the academy's founder agreed to write one for project 1. Credit: "Founder, an international Quran academy" (AR: "مؤسس أكاديمية دولية لتحفيظ القرآن الكريم"). Deferred until after the rebuild; the placeholder below stands in until then.
 - **Placeholder, for design only. Never publish.** The schema marks it `placeholder: true`, and production builds must hide any placeholder testimonial.
   - EN: "[Placeholder] Abdullah turned our requirements into a system our whole team works in, and he was clear with us at every step."
   - AR: "[نص مؤقت] حوّل عبدالله متطلباتنا إلى نظام يعمل عليه فريقنا كله، وكان واضحًا معنا في كل خطوة."
@@ -130,7 +138,7 @@ For each project: a one-line summary, the problem, what was built, the stack, th
 
 ## 8. CV ❓
 
-- `public/CV_Abdullah_Zaghloul.pdf` is out of date. Rewrite it from this file once sections 1 to 6 are approved, before the site goes live.
+- `public/CV_Abdullah_Zaghloul.pdf` is out of date. Rewrite it from this file in the pre-launch session, after the final wording review, so it's written once.
 - Education stays on the CV.
 - Both languages: an English CV and an Arabic CV.
 
@@ -140,6 +148,61 @@ Values that change often live in one settings file, not in components:
 - Availability: on or off, plus an optional note per language.
 - Contact links, the CV file and the main call to action.
 
-## 10. Site copy ❓
+## 10. Site copy 📝
 
-Navigation, buttons, section titles, the call to action and the footer. Write these last, once the sections above are approved.
+**Navigation**
+
+| | English | Arabic |
+|---|---|---|
+| Services | Services | الخدمات |
+| Projects | Work | الأعمال |
+| Experience | Experience | الخبرة |
+| About | About | عني |
+| Contact | Contact | تواصل |
+| Language switch | العربية | English |
+| Theme toggle (label) | Switch theme | تبديل المظهر |
+| Skip link | Skip to content | تخطَّ إلى المحتوى |
+
+**Hero**
+
+| | English | Arabic |
+|---|---|---|
+| Main button | Message me on WhatsApp | راسلني على واتساب |
+| Second button | See my work | شاهد أعمالي |
+| Availability, on | Available for new projects | متاح لمشاريع جديدة |
+| Availability, off | Not taking new projects right now | لا أستقبل مشاريع جديدة حاليًا |
+
+**Section titles**
+
+| | English | Arabic |
+|---|---|---|
+| Services | What I build | ماذا أبني |
+| Projects | Selected work | أعمال مختارة |
+| Experience | Experience | الخبرة |
+| About | About | عني |
+| How I work | How I work | طريقة عملي |
+| Contact | Let's start your project | لنبدأ مشروعك |
+| Contact text | Tell me about your business and the task that takes up your team's time. | أخبرني عن عملك، وعن المهمة التي تأخذ وقت فريقك. |
+
+**Labels**
+
+| | English | Arabic |
+|---|---|---|
+| Project fields | Problem · What I built · Result · Stack | المشكلة · ما بنيته · النتيجة · التقنيات |
+| Live link | Visit the site | زيارة الموقع |
+| Linked project | Related project | مشروع مرتبط |
+| Experience dates | Present | حتى الآن |
+| Work type | Remote · Project-based | عن بُعد · بالمشروع |
+| CV button | Download CV | تحميل السيرة الذاتية |
+
+**Footer and other pages**
+
+| | English | Arabic |
+|---|---|---|
+| Copyright | © 2026 Abdullah Zaghloul | © 2026 عبدالله زغلول |
+| Source link | Source on GitHub | الكود المصدري على GitHub |
+| Back to top | Back to top | إلى الأعلى |
+| 404 title | Page not found | الصفحة غير موجودة |
+| 404 button | Back to home | العودة إلى الرئيسية |
+| Page title | Abdullah Zaghloul · Management systems, dashboards and automation | عبدالله زغلول · أنظمة إدارة ولوحات متابعة وأتمتة |
+| Page description | The headline subline from section 1 | السطر التالي للعنوان من القسم 1 |

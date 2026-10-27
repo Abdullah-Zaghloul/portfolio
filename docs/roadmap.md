@@ -2,7 +2,7 @@
 
 Work goes in this order: content first, then the technical rebuild, then identity and visual polish. Each phase ends with its exit criteria met and this file updated.
 
-**Current phase: 2 — Content.** Updated 2026-10-28.
+**Current phase: 3 — Rebuild foundation.** Updated 2026-10-28.
 
 ---
 
@@ -13,7 +13,7 @@ Work goes in this order: content first, then the technical rebuild, then identit
 - [x] Save the Veracode-style prototype on `prototype-v1`
 - [x] Set up `CLAUDE.md` so new sessions start with context
 
-## Phase 2 — Content
+## Phase 2 — Content ✅
 
 Collect and write everything the site will say, in English and Arabic. The checklist and the open questions are in [content.md](content.md).
 
@@ -21,13 +21,15 @@ Progress (2026-10-28):
 - [x] Ground rules, positioning, audience and services agreed
 - [x] Old content reviewed and cut; new experience and projects drafted in both languages
 - [x] URL layout decided (D10: Arabic at `/`, English at `/en/`)
-- [ ] Abdullah reviews the drafts in content.md, sections 1 to 5
-- [ ] About: approve the extra content, the graduation year question, and the photo
-- [ ] Collect the founder's testimonial and the portal screenshots (for the mockup)
-- [ ] Write the site copy (navigation, buttons, footer)
-- [ ] Rewrite the CV in English and Arabic
+- [x] Drafts in sections 1 to 5 accepted as the working copy for the build. The wording review moves to [Before launch](#before-launch-real-assets).
+- [x] About: "How I work" approved, no "Now" line, no graduation year
+- [x] Site copy drafted (navigation, buttons, section titles, footer)
 
-**Exit:** every section in content.md is marked done, with no placeholders or invented numbers left.
+Moved to [Before launch](#before-launch-real-assets): the wording review and the CV.
+
+Deferred to after the rebuild (agreed 2026-10-28): the profile photo, the founder's testimonial text and the portal screenshots. The build uses clearly marked placeholders for these until Abdullah sends them (see [Before launch](#before-launch-real-assets)).
+
+**Exit:** met on 2026-10-28. Every section has a working draft with no invented numbers; the deferred assets have placeholders.
 
 ## Phase 3 — Rebuild foundation
 
@@ -43,6 +45,17 @@ A working Astro site with real content and a plain, temporary design.
 - [ ] Rewrite README for the new stack
 
 **Exit:** live on GitHub Pages and meeting the [quality bar](brief.md#quality-bar), apart from motion.
+
+## Before launch: real assets
+
+One review session with Abdullah after the build and right before the site is shared publicly: final wording, then the real assets in place of the placeholders.
+
+- [ ] Review the wording of every section and the site copy, in both languages, on the built site
+- [ ] Rewrite the CV in English and Arabic from the final wording (no graduation year)
+
+- [ ] Profile photo for About
+- [ ] Founder's testimonial text for project 1 (remove `placeholder: true`)
+- [ ] Portal screenshots, redrawn as a mockup with fictional data
 
 ## Phase 4 — Identity and design
 
