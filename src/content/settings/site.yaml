@@ -1,0 +1,23 @@
+# Site settings. Change these values without touching any code.
+
+name:
+  ar: عبدالله زغلول
+  en: Abdullah Zaghloul
+
+availability:
+  available: false
+  # Optional line shown next to the status, per language.
+  # note:
+  #   ar: ""
+  #   en: ""
+
+contact:
+  whatsapp: "201069888185"
+  email: abdullah.m.z2005@gmail.com
+  linkedin: https://www.linkedin.com/in/abdullah-zaghloul
+  github: https://github.com/Abdullah-Zaghloul
+
+# The CV buttons stay hidden until the new CVs are written (see docs/roadmap.md).
+cv: {}
+#   ar: CV_Abdullah_Zaghloul_AR.pdf
+#   en: CV_Abdullah_Zaghloul_EN.pdf

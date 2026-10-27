@@ -96,3 +96,19 @@ The Veracode-inspired React redesign is committed on the `prototype-v1` branch. 
 - Redirecting by browser language is unreliable (many Gulf users have English browsers), can hide a version from search engines, and needs a server or JavaScript.
 
 **Reconsider if** most visitors turn out to be English readers.
+
+## D11 — How the rebuild is put together
+
+**Date:** 2026-10-28. **Status:** Accepted.
+
+Choices made while building Phase 3, within D1 to D8:
+
+- **Content as YAML in content collections.** Each service, project and role is one YAML file in `src/content/`, with an `ar` and an `en` value for every text field. YAML is easy to edit without knowing code, and the Zod schemas in `src/content.config.ts` fail the build on a missing translation or a wrong field. Site settings are one file, `src/content/settings/site.yaml`.
+- **Site copy in `src/i18n/ui.ts`.** Navigation, buttons and labels are a typed dictionary, so a missing key is a type error.
+- **Fonts through Astro's built-in Fonts API** (stable since Astro 6) with the Fontsource provider. Files are downloaded at build time and served from the site, which satisfies D6 with no extra package. The face is temporary: IBM Plex Sans Arabic, which covers Arabic and Latin, in weights 400 and 700 only. Only the 700 file for the page's script is preloaded, because the headline is the largest paint. The identity phase picks the final pair.
+- **Icons with a small `Icon.astro` component** reading `@iconify-json/lucide` and `@iconify-json/simple-icons` at build time (D5). Both are dev dependencies, and no icon code ships to the browser. This avoids an icon integration that would have to keep up with Astro releases.
+- **CSS inlined in the page** (`build.inlineStylesheets: "always"`). It's about 4 KB gzipped, and inlining removes the only render-blocking request.
+- **Theme without a flash.** A tiny inline script applies a stored choice before paint. With no stored choice, or without JavaScript, CSS follows `prefers-color-scheme`.
+- **One 404 page in both languages**, because GitHub Pages serves a single `404.html`.
+
+**Measured** (Lighthouse mobile, 2026-10-28): Arabic page 99–100 Performance, 100 in the other three, LCP 1.7 s, CLS 0.001. Home page JavaScript is under 1 KB.

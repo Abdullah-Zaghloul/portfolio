@@ -1,0 +1,27 @@
+order: 1
+featured: true
+title:
+  ar: بوابة إدارة لأكاديمية تحفيظ قرآن عبر الإنترنت
+  en: Management portal for an online Quran academy
+summary:
+  ar: بوابة ويب بلغتين، لكل دور من أدوار الفريق السبعة لوحته الخاصة، تغطي الطلاب والحصص والخطط الدراسية والاختبارات والمدفوعات والتقارير الشهرية.
+  en: A bilingual web portal with a dashboard for each of seven staff roles, covering students, sessions, study plans, exams, payments and monthly reports.
+problem:
+  ar: احتاجت الأكاديمية طريقة أسهل لمتابعة طلابها ومعلميها وحصصهم.
+  en: The academy wanted an easier way to follow up on students, teachers and their sessions.
+built:
+  ar: بعد نحو أسبوع من جمع المتطلبات مع مؤسس الأكاديمية، سلّمت نسخة أولى كاملة على Google Sheets وApps Script خلال أسبوع. وعند التسليم طلبت الأكاديمية نظامًا أشمل وأكثر احترافية، فأعدت بناءه بوابة ويب بالعربية والإنجليزية، مع تسجيل الدخول بحساب Google. لا يرى كل دور إلا ما يُسمح له به، وهذا مطبَّق في قاعدة البيانات نفسها، وفيها نسخ احتياطي يومي تلقائي ومجموعة اختبارات تلقائية.
+  en: After about a week of gathering requirements with the founder, I delivered a complete first version on Google Sheets and Apps Script in a week. On delivery the academy asked for a fuller, more professional system, so I rebuilt it as a web portal in Arabic and English, with Google sign-in. Each role sees only what it's allowed to, enforced in the database itself, with daily automatic backups and an automated test suite.
+result:
+  ar: تعمل منذ 25 أكتوبر 2026، بعد نحو أربعة أسابيع من أول اجتماع للمتطلبات.
+  en: In production since 25 October 2026, about four weeks after the first requirements meeting.
+stack: [Next.js, TypeScript, Supabase, PostgreSQL, Tailwind CSS, Cloudflare Workers, GitHub Actions]
+related: academy-website
+testimonial:
+  placeholder: true
+  quote:
+    ar: "[نص مؤقت] حوّل عبدالله متطلباتنا إلى نظام يعمل عليه فريقنا كله، وكان واضحًا معنا في كل خطوة."
+    en: "[Placeholder] Abdullah turned our requirements into a system our whole team works in, and he was clear with us at every step."
+  credit:
+    ar: مؤسس أكاديمية دولية لتحفيظ القرآن الكريم
+    en: Founder, an international Quran academy

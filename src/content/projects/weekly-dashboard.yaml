@@ -1,0 +1,17 @@
+order: 3
+title:
+  ar: لوحة أداء أسبوعية تحدّث نفسها
+  en: Self-updating weekly performance dashboard
+summary:
+  ar: لوحة من صفحة واحدة تجهّز أرقام المنصات للاجتماع الأسبوعي.
+  en: A one-page dashboard that prepares the platform numbers for the weekly meeting.
+problem:
+  ar: كان الاجتماع الأسبوعي يحتاج أرقام المنصات، وتجهيزها يدويًا يستغرق نحو ساعة.
+  en: The weekly meeting needed platform numbers that took about an hour to prepare by hand.
+built:
+  ar: "سكربت ينقل بيانات التحليلات المصدَّرة من Metricool إلى Google Sheet، ولوحة من صفحة واحدة تقرأ منها: الأرقام المطلوبة، ورسوم بيانية لاتجاه النمو وحالته."
+  en: "A script moves the analytics exports from Metricool into a Google Sheet, and a one-page dashboard reads from it: the required figures, plus charts of the growth trend and its status."
+result:
+  ar: أرقام الأسبوع جاهزة دون أي عمل يدوي.
+  en: The weekly numbers are ready with no manual work.
+stack: [Metricool, Google Sheets]

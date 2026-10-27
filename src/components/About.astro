@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { useTranslations, type Locale } from "../i18n/ui";
+import Section from "./Section.astro";
+
+interface Props {
+  locale: Locale;
+  home: CollectionEntry<"home">["data"];
+  name: string;
+}
+
+const { locale, home, name } = Astro.props;
+const t = useTranslations(locale);
+// Placeholder until the real photo arrives (docs/roadmap.md, "Before launch").
+const initials = name
+  .split(" ")
+  .map((w) => w[0])
+  .join(locale === "ar" ? " " : "");
+---
+
+<Section id="about" title={t("about.title")}>
+  <div class="grid gap-10 md:grid-cols-[1fr_16rem]">
+    <div>
+      <p class="text-lg leading-relaxed">{home.about[locale]}</p>
+      <h3 class="mt-10 mb-4 font-semibold">{t("about.principles")}</h3>
+      <ol class="grid gap-4 sm:grid-cols-2">
+        {
+          home.principles.map((p) => (
+            <li class="rounded-xl border border-line bg-surface p-5">
+              <p class="font-semibold">{p.title[locale]}</p>
+              <p class="mt-1 text-muted">{p.text[locale]}</p>
+            </li>
+          ))
+        }
+      </ol>
+      <h3 class="mt-10 mb-2 font-semibold">{t("about.education")}</h3>
+      <p class="text-muted">{home.education[locale]}</p>
+    </div>
+    <div
+      class="order-first flex aspect-square w-40 items-center justify-center rounded-2xl border border-line bg-surface text-4xl font-bold text-muted md:order-none md:w-full"
+      aria-hidden="true"
+    >
+      {initials}
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,84 @@
+---
+import { getEntry, type CollectionEntry } from "astro:content";
+import { useTranslations, type Locale } from "../i18n/ui";
+import Icon from "./Icon.astro";
+
+interface Props {
+  locale: Locale;
+  project: CollectionEntry<"projects">;
+}
+
+const { locale, project } = Astro.props;
+const { data } = project;
+const t = useTranslations(locale);
+const related = data.related ? await getEntry(data.related) : undefined;
+// Placeholder quotes help with layout in development and never ship (docs/content.md, section 6).
+const testimonial = data.testimonial && !(data.testimonial.placeholder && import.meta.env.PROD) ? data.testimonial : undefined;
+
+const details = [
+  { label: t("project.problem"), text: data.problem?.[locale] },
+  { label: t("project.built"), text: data.built[locale] },
+  { label: t("project.result"), text: data.result?.[locale] },
+].filter((d) => d.text);
+---
+
+<article
+  id={`project-${project.id}`}
+  class:list={["rounded-xl border border-line bg-surface p-6 md:p-8", data.featured && "md:col-span-2"]}
+>
+  {
+    data.featured && (
+      <div class="mb-6 flex aspect-video items-center justify-center rounded-lg border border-dashed border-line text-sm text-muted">
+        {t("project.visual")}
+      </div>
+    )
+  }
+  <h3 class="text-xl font-bold">{data.title[locale]}</h3>
+  <p class="mt-2 text-muted">{data.summary[locale]}</p>
+
+  <dl class="mt-6 space-y-4">
+    {
+      details.map((d) => (
+        <div>
+          <dt class="text-sm font-semibold">{d.label}</dt>
+          <dd class="mt-1 text-muted">{d.text}</dd>
+        </div>
+      ))
+    }
+    <div>
+      <dt class="text-sm font-semibold">{t("project.stack")}</dt>
+      <dd class="mt-2">
+        <ul class="flex flex-wrap gap-2" dir="ltr">
+          {data.stack.map((s) => <li class="rounded border border-line px-2 py-0.5 text-sm">{s}</li>)}
+        </ul>
+      </dd>
+    </div>
+  </dl>
+
+  {
+    testimonial && (
+      <figure class="mt-6 border-s-2 border-accent ps-4">
+        <blockquote class="text-lg">{testimonial.quote[locale]}</blockquote>
+        <figcaption class="mt-2 text-sm text-muted">{testimonial.credit[locale]}</figcaption>
+      </figure>
+    )
+  }
+
+  <div class="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
+    {
+      data.link && (
+        <a href={data.link} target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-accent">
+          {t("project.link")}
+          <Icon name="lucide:arrow-up-right" size={16} class="rtl:-scale-x-100" />
+        </a>
+      )
+    }
+    {
+      related && (
+        <a href={`#project-${related.id}`} class="text-accent">
+          {t("project.related")}: {related.data.title[locale]}
+        </a>
+      )
+    }
+  </div>
+</article>

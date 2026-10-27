@@ -1,0 +1,65 @@
+---
+import { Font } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { dir, locales, type Locale } from "../i18n/ui";
+import { asset } from "../lib/url";
+import "../styles/global.css";
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  // Path inside each locale, e.g. "" for the home page. Leave out for pages with no translations.
+  path?: string;
+  noindex?: boolean;
+}
+
+const { locale, title, description, path, noindex = false } = Astro.props;
+const site = Astro.site!;
+const localeUrl = (l: Locale) => new URL(getRelativeLocaleUrl(l, path), site).href;
+const ogImage = new URL(asset("og.png"), site).href;
+---
+
+<!doctype html>
+<html lang={locale} dir={dir[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {
+      path !== undefined && (
+        <>
+          <link rel="canonical" href={localeUrl(locale)} />
+          {locales.map((l) => <link rel="alternate" hreflang={l} href={localeUrl(l)} />)}
+          <link rel="alternate" hreflang="x-default" href={localeUrl("ar")} />
+        </>
+      )
+    }
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={locale === "ar" ? "ar_AR" : "en_US"} />
+    {path !== undefined && <meta property="og:url" content={localeUrl(locale)} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href={asset("favicon.svg")} type="image/svg+xml" />
+    <link rel="sitemap" href={asset("sitemap-index.xml")} />
+    <Font
+      cssVariable="--font-plex"
+      // The headline is the largest paint, so its weight loads first.
+      preload={[{ subset: locale === "ar" ? "arabic" : "latin", weight: 700 }]}
+    />
+    <script is:inline>
+      // Runs before paint so a stored theme never flashes. With no stored choice, CSS follows the system.
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

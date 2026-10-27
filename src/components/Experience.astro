@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import { formatDate, useTranslations, type Locale } from "../i18n/ui";
+import Section from "./Section.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const roles = (await getCollection("experience")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Section id="experience" title={t("experience.title")}>
+  <ol class="space-y-10">
+    {
+      roles.map(({ data }) => (
+        <li class="grid gap-2 md:grid-cols-[12rem_1fr] md:gap-8">
+          <p class="text-sm text-muted">
+            {formatDate(data.start, locale)} – {data.end ? formatDate(data.end, locale) : t("experience.present")}
+            <br />
+            {t(data.type === "remote" ? "experience.remote" : "experience.project")}
+          </p>
+          <div>
+            <h3 class="text-lg font-semibold" dir="auto" lang={locale === "ar" && /[a-z]/i.test(data.role.ar) ? "en" : undefined}>
+              {data.role[locale]}
+            </h3>
+            <p class="text-muted">{data.org[locale]}</p>
+            <ul class="mt-4 list-disc space-y-2 ps-5">
+              {data.points.map((p) => <li>{p[locale]}</li>)}
+            </ul>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</Section>

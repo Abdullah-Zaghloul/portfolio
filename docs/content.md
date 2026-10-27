@@ -82,7 +82,7 @@ In this order, as agreed:
 | 2 | **Dashboards, reporting and automation.** Your numbers on one page that updates itself, with the repetitive steps around it handled automatically. | **لوحات المتابعة والتقارير والأتمتة.** أرقامك في صفحة واحدة تحدّث نفسها، والخطوات المتكررة حولها تتم تلقائيًا. |
 | 3 | **Websites for organizations.** Fast bilingual websites that take a visitor from an ad to a WhatsApp message. | **مواقع المؤسسات.** مواقع سريعة بلغتين، تنقل الزائر من الإعلان إلى رسالة واتساب. |
 
-- ❓ The tools strip. Candidates: Next.js, TypeScript, React, Supabase, PostgreSQL, Tailwind CSS, Astro, Cloudflare, GitHub Actions, Google Apps Script, Google Sheets, Metricool, Notion.
+- ❓ The tools strip, not built yet; decide in the pre-launch review. Candidates: Next.js, TypeScript, React, Supabase, PostgreSQL, Tailwind CSS, Astro, Cloudflare, GitHub Actions, Google Apps Script, Google Sheets, Metricool, Notion.
 
 ## 5. Projects 📝
 
@@ -150,6 +150,8 @@ Values that change often live in one settings file, not in components:
 
 ## 10. Site copy 📝
 
+Lives in `src/i18n/ui.ts`. The editorial content from sections 1 to 5 lives in `src/content/` as YAML.
+
 **Navigation**
 
 | | English | Arabic |
@@ -194,6 +196,8 @@ Values that change often live in one settings file, not in components:
 | Experience dates | Present | حتى الآن |
 | Work type | Remote · Project-based | عن بُعد · بالمشروع |
 | CV button | Download CV | تحميل السيرة الذاتية |
+| About subheading | Education | الدراسة |
+| Visual placeholder | Project visual coming soon | صورة المشروع قريبًا |
 
 **Footer and other pages**
 

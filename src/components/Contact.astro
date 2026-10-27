@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { useTranslations, type Locale } from "../i18n/ui";
+import { asset } from "../lib/url";
+import Icon from "./Icon.astro";
+import Section from "./Section.astro";
+
+interface Props {
+  locale: Locale;
+  settings: CollectionEntry<"settings">["data"];
+}
+
+const { locale, settings } = Astro.props;
+const t = useTranslations(locale);
+const { contact } = settings;
+const cv = settings.cv[locale];
+
+const links = [
+  { href: `mailto:${contact.email}`, label: contact.email, icon: "lucide:mail" },
+  { href: contact.linkedin, label: "LinkedIn", icon: "brand:linkedin" },
+  { href: contact.github, label: "GitHub", icon: "brand:github" },
+] as const;
+---
+
+<Section id="contact" title={t("contact.title")}>
+  <p class="max-w-xl text-lg text-muted">{t("contact.text")}</p>
+  <div class="mt-8 flex flex-wrap gap-3">
+    <a
+      href={`https://wa.me/${contact.whatsapp}`}
+      class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 font-semibold text-accent-text"
+    >
+      <Icon name="brand:whatsapp" />
+      {t("hero.cta")}
+    </a>
+    {
+      cv && (
+        <a href={asset(cv)} download class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 font-semibold hover:bg-surface">
+          <Icon name="lucide:download" />
+          {t("cv")}
+        </a>
+      )
+    }
+  </div>
+  <ul class="mt-8 flex flex-wrap gap-6">
+    {
+      links.map((l) => (
+        <li>
+          <a href={l.href} class="inline-flex items-center gap-2 text-muted hover:text-text" dir="ltr">
+            <Icon name={l.icon} />
+            {l.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Section>

@@ -1,0 +1,16 @@
+order: 2
+title:
+  ar: الموقع العام لأكاديمية تحفيظ القرآن
+  en: Public website for the Quran academy
+summary:
+  ar: موقع الأكاديمية بلغتين، وصفحة الهبوط لإعلاناتها.
+  en: The academy's bilingual website and the landing page for its ads.
+built:
+  ar: يتعرّف الزائر على البرامج ونبذة عن المؤسس، ثم يتواصل مع الأكاديمية عبر واتساب أو نموذج تواصل. صُمّم للجوال أولًا، وخضع لفحوص أمان قبل الإطلاق.
+  en: Visitors see the programs and the founder's profile, then contact the academy on WhatsApp or through a form. Built mobile-first, with security checks before launch.
+result:
+  ar: أُطلق في أكتوبر 2026.
+  en: Launched in October 2026.
+stack: [Astro, TypeScript, Tailwind CSS, Cloudflare Workers]
+link: https://qalaidacademy.com
+related: academy-portal

@@ -1,0 +1,13 @@
+order: 2
+role:
+  ar: مطوّر أنظمة
+  en: Systems Developer
+org:
+  ar: أكاديمية لتحفيظ القرآن الكريم عبر الإنترنت
+  en: An online Quran academy
+type: project
+start: "2026-09"
+end: "2026-10"
+points:
+  - ar: بنيت بوابة الإدارة التي تعمل عليها الأكاديمية، وموقعها العام.
+    en: Built the management portal the academy runs on, and its public website.

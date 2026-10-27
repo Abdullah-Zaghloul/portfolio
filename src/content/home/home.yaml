@@ -1,0 +1,41 @@
+headline:
+  ar: أبني الأنظمة الداخلية التي تُدار بها الأعمال.
+  en: I build the internal systems a business runs on.
+
+subline:
+  ar: بوابات إدارة، ولوحات متابعة تحدّث نفسها، وأتمتة، مصممة على طريقة عمل فريقك الفعلية.
+  en: Management portals, dashboards that update themselves, and automation, designed around how your team actually works.
+
+about:
+  ar: "أبني الأنظمة من داخل العمل نفسه. أدير عمليات المحتوى في عملي اليومي، فأنسّق بين المونتاج والتصميم والنشر على أكثر من منصة، وأرى أين يذهب وقت الفريق. وحين تتكرر مهمة، أحوّلها إلى نظام: لوحة متابعة تجهّز نفسها، أو رفع يتم وحده، أو بوابة كاملة تعمل عليها مؤسسة بأكملها."
+  en: "I build systems from inside the work. My day job is running content operations, coordinating editors, designers and publishing across several platforms, so I see where a team's hours go. When a task keeps repeating, I turn it into a system: a dashboard that prepares itself, an upload that runs on its own, or a full portal that a whole organization works in."
+
+education:
+  ar: صناعة البرمجيات والوسائط المتعددة، كلية العلوم، جامعة الإسكندرية
+  en: Software Industry & Multimedia, Faculty of Science, Alexandria University
+
+principles:
+  - title:
+      ar: أفهم العمل قبل أن أبني.
+      en: Understand the work before building.
+    text:
+      ar: أبدأ بفهم طريقة عمل فريقك اليوم، وأين يذهب وقته.
+      en: I start by learning how your team works today and where its time goes.
+  - title:
+      ar: متطلبات مكتوبة ومتفق عليها.
+      en: Requirements agreed in writing.
+    text:
+      ar: نتفق على المطلوب كتابةً قبل أن يبدأ البناء.
+      en: We agree on what's needed, in writing, before building starts.
+  - title:
+      ar: نسخة تعمل أولًا، ثم نحسّنها.
+      en: A working version first, then improvements.
+    text:
+      ar: تستلم نسخة أولى تعمل في وقت قصير، ثم نطوّرها على الاستخدام الفعلي.
+      en: You get a first version that works in a short time, and we improve it based on real use.
+  - title:
+      ar: بياناتك محمية.
+      en: Your data is protected.
+    text:
+      ar: صلاحيات لكل دور، ونسخ احتياطي يومي، واختبارات تلقائية.
+      en: Permissions for each role, daily backups and automated tests.

@@ -1,114 +1,39 @@
 # Abdullah Zaghloul — Portfolio
 
-A professional, bilingual (AR/EN) portfolio built with React, Tailwind CSS, and Framer Motion.
+Bilingual (Arabic and English) portfolio, built with [Astro](https://astro.build) and Tailwind CSS v4. Arabic is served at `/` and English at `/en/`.
 
----
+## Run it
 
-## 🚀 Quick Start (VS Code)
-
-### 1. Install dependencies
 ```bash
 npm install
+npm run dev       # http://localhost:4321/portfolio/
+npm run build     # type-checks, then builds to dist/
+npm run preview   # serves the built site
 ```
 
-### 2. Run locally
-```bash
-npm start
-```
-Open http://localhost:3000
+## Edit the content
 
----
+Content is separate from layout, so changing text never means touching a component.
 
-## ✏️ How to Edit Content
+| What | Where |
+|------|-------|
+| Availability, contact links, CV files | `src/content/settings/site.yaml` |
+| Headline, About, "How I work", education | `src/content/home/home.yaml` |
+| Services | `src/content/services/*.yaml` |
+| Projects | `src/content/projects/*.yaml` |
+| Experience | `src/content/experience/*.yaml` |
+| Navigation, buttons, section titles, footer | `src/i18n/ui.ts` |
 
-All content lives in two files — no need to touch components:
+Every text field has an `ar` and an `en` value. The schemas in `src/content.config.ts` check each file at build time, so a missing translation or a typo in a field name fails the build instead of shipping.
 
-| File | What to edit |
-|------|-------------|
-| `src/data.js` | Skills cards, project cards, contact links |
-| `src/translations.js` | All text in English and Arabic |
+A project testimonial marked `placeholder: true` shows in development only and never in a production build.
 
-### Add a new skill card — edit `src/data.js`:
-```js
-{
-  icon: "fa-solid fa-bolt",          // FontAwesome icon class
-  en: { title: "...", desc: "..." },
-  ar: { title: "...", desc: "..." },
-  tags: ["Tag1", "Tag2"],
-  highlight: false,                  // true = shows ★ MAIN badge
-}
-```
+## Deploy
 
-### Add a new project — same file:
-```js
-{
-  icon: "fa-solid fa-database",
-  en: { title: "...", desc: "..." },
-  ar: { title: "...", desc: "..." },
-  tags: ["Python", "SQL"],
-}
-```
+Pushing to `main` builds and deploys to GitHub Pages with GitHub Actions (`.github/workflows/deploy.yml`). The repo's Pages source must be set to **GitHub Actions**. `dist/` is not committed.
 
----
+The only host-specific settings are `site` and `base` in `astro.config.mjs`.
 
-## 📥 Add your CV
+## Docs
 
-Place your CV file in `/public/` named:
-```
-CV_Abdullah_Zaghloul.pdf
-```
-The download button in the Hero section already links to it.
-
----
-
-## 🌐 Deploy to GitHub Pages
-
-### One-time setup
-1. Create a GitHub repo named `portfolio`
-2. Update `homepage` in `package.json`:
-   ```json
-   "homepage": "https://Abdullah-Zaghloul.github.io/portfolio"
-   ```
-3. Init git & push:
-   ```bash
-   git init
-   git remote add origin https://github.com/Abdullah-Zaghloul/portfolio.git
-   git add .
-   git commit -m "initial commit"
-   git push -u origin main
-   ```
-
-### Deploy
-```bash
-npm run deploy
-```
-
-That's it! Your site will be live at:
-`https://Abdullah-Zaghloul.github.io/portfolio`
-
----
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── public/
-│   ├── index.html
-│   └── CV_Abdullah_Zaghloul.pdf   ← Add your CV here
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Projects.jsx
-│   │   ├── About.jsx
-│   │   └── Contact.jsx
-│   ├── App.jsx              ← Root component + state
-│   ├── data.js              ← All cards & links
-│   ├── translations.js      ← All text (EN + AR)
-│   ├── index.js
-│   └── index.css
-├── tailwind.config.js
-├── postcss.config.js
-└── package.json
-```
+Plans and decisions live in [`docs/`](docs): start with [`docs/roadmap.md`](docs/roadmap.md).

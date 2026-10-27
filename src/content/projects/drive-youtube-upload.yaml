@@ -1,0 +1,17 @@
+order: 4
+title:
+  ar: رفع تلقائي من Google Drive إلى يوتيوب
+  en: Automatic Drive-to-YouTube upload
+summary:
+  ar: سكربت يرفع الفيديو من Google Drive إلى يوتيوب مباشرة.
+  en: A script that uploads a video from Google Drive straight to YouTube.
+problem:
+  ar: كان رفع كل فيديو يدويًا يستغرق نحو ساعة.
+  en: Each video upload took about an hour by hand.
+built:
+  ar: سكربت Python على Google Colab يرفع الفيديو من Google Drive إلى يوتيوب مباشرة عبر YouTube Data API.
+  en: A Python script on Google Colab uploads the video from Google Drive straight to YouTube through the YouTube Data API.
+result:
+  ar: يوفّر نحو ساعة في رفع كل فيديو.
+  en: Saves about an hour on every video upload.
+stack: [Python, Google Colab, YouTube Data API]

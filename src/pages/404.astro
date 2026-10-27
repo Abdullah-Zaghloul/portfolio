@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { ui } from "../i18n/ui";
+
+// One page for both languages: GitHub Pages serves a single 404.html.
+---
+
+<Base locale="ar" title={`${ui.ar["404.title"]} · ${ui.en["404.title"]}`} description={ui.en["404.title"]} noindex>
+  <main id="main" class="mx-auto grid min-h-screen max-w-3xl content-center gap-12 px-4 md:grid-cols-2">
+    <div>
+      <h1 class="text-3xl font-bold">{ui.ar["404.title"]}</h1>
+      <a href={getRelativeLocaleUrl("ar")} class="mt-4 inline-block text-accent">{ui.ar["404.home"]}</a>
+    </div>
+    <div lang="en" dir="ltr">
+      <h1 class="text-3xl font-bold">{ui.en["404.title"]}</h1>
+      <a href={getRelativeLocaleUrl("en")} class="mt-4 inline-block text-accent">{ui.en["404.home"]}</a>
+    </div>
+  </main>
+</Base>

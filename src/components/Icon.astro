@@ -1,0 +1,29 @@
+---
+// Inlines one SVG icon at build time (D5). Nothing from the icon sets ships to the browser.
+import lucide from "@iconify-json/lucide/icons.json";
+import simpleIcons from "@iconify-json/simple-icons/icons.json";
+
+interface Props {
+  name: `lucide:${string}` | `brand:${string}`;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 20, class: className } = Astro.props;
+const [set, id] = name.split(":") as [string, string];
+const source = set === "brand" ? simpleIcons : lucide;
+const icon = (source.icons as Record<string, { body: string }>)[id];
+if (!icon) throw new Error(`Unknown icon: ${name}`);
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={`0 0 ${source.width} ${source.height}`}
+  width={size}
+  height={size}
+  fill={set === "brand" ? "currentColor" : undefined}
+  class={className}
+  aria-hidden="true"
+  focusable="false"
+  set:html={icon.body}
+/>

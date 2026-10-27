@@ -2,7 +2,7 @@
 
 Work goes in this order: content first, then the technical rebuild, then identity and visual polish. Each phase ends with its exit criteria met and this file updated.
 
-**Current phase: 3 — Rebuild foundation.** Updated 2026-10-28.
+**Current phase: 3 — Rebuild foundation** (built and verified locally; deploy pending). Updated 2026-10-28.
 
 ---
 
@@ -35,14 +35,17 @@ Deferred to after the rebuild (agreed 2026-10-28): the profile photo, the founde
 
 A working Astro site with real content and a plain, temporary design.
 
-- [ ] Scaffold Astro with TypeScript and Tailwind v4, and remove the old React/Vite code
-- [ ] Content collections and schemas for services, projects, experience and site settings
-- [ ] i18n routing (`/` Arabic, `/en/` English, per D10), RTL, language switcher that keeps the current section
-- [ ] Theme toggle (system default plus remembered choice, no flash on load)
-- [ ] SEO: per-language titles and descriptions, `hreflang`, Open Graph image, sitemap, `robots.txt`
-- [ ] Icons inlined at build time, self-hosted fonts
-- [ ] GitHub Actions deploy to GitHub Pages; stop committing `dist/`
-- [ ] Rewrite README for the new stack
+- [x] Scaffold Astro with TypeScript and Tailwind v4, and remove the old React/Vite code
+- [x] Content collections and schemas for services, projects, experience and site settings
+- [x] i18n routing (`/` Arabic, `/en/` English, per D10), RTL, language switcher that keeps the current section
+- [x] Theme toggle (system default plus remembered choice, no flash on load)
+- [x] SEO: per-language titles and descriptions, `hreflang`, Open Graph image, sitemap, `robots.txt`
+- [x] Icons inlined at build time, self-hosted fonts (D11)
+- [x] GitHub Actions deploy workflow; `dist/` no longer committed
+- [x] Rewrite README for the new stack
+- [ ] Merge `rebuild` into `main` and switch the repo's Pages source to GitHub Actions (waiting for Abdullah's go-ahead)
+
+Temporary in this phase: the font, the colors, the OG image (`public/og.png`, English text only) and the favicon. The identity phase replaces them. The old CV is still in `public/` but no longer linked; the CV buttons stay hidden until the new CVs exist.
 
 **Exit:** live on GitHub Pages and meeting the [quality bar](brief.md#quality-bar), apart from motion.
 

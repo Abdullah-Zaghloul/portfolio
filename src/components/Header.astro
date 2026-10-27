@@ -1,0 +1,99 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { otherLocale, sections, useTranslations, type Locale } from "../i18n/ui";
+import Icon from "./Icon.astro";
+
+interface Props {
+  locale: Locale;
+  name: string;
+}
+
+const { locale, name } = Astro.props;
+const t = useTranslations(locale);
+const other = otherLocale(locale);
+const links = sections.map((id) => ({ id, label: t(`nav.${id}`) }));
+---
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded focus:bg-surface focus:px-4 focus:py-2">
+  {t("skip")}
+</a>
+<header class="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-5xl items-center gap-4 px-4">
+    <a href={getRelativeLocaleUrl(locale)} class="font-bold">{name}</a>
+
+    <nav aria-label={t("nav.label")} class="ms-auto hidden md:block">
+      <ul class="flex gap-6 text-sm">
+        {links.map((l) => <li><a href={`#${l.id}`} class="text-muted hover:text-text">{l.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="ms-auto flex items-center gap-2 md:ms-0">
+      <a
+        href={getRelativeLocaleUrl(other)}
+        hreflang={other}
+        lang={other}
+        aria-label={t("lang.switchLabel")}
+        data-lang-switch
+        class="rounded px-2 py-1 text-sm hover:bg-surface"
+      >
+        {t("lang.switch")}
+      </a>
+      <button type="button" data-theme-toggle aria-label={t("theme.toggle")} class="rounded p-2 hover:bg-surface">
+        <span class="dark-icon hidden"><Icon name="lucide:sun" /></span>
+        <span class="light-icon block"><Icon name="lucide:moon" /></span>
+      </button>
+
+      <details class="relative md:hidden">
+        <summary class="cursor-pointer list-none rounded p-2 hover:bg-surface" aria-label={t("nav.label")}>
+          <Icon name="lucide:menu" />
+        </summary>
+        <ul class="absolute end-0 mt-2 w-48 rounded border border-line bg-surface p-2 shadow-lg">
+          {links.map((l) => <li><a href={`#${l.id}`} class="block rounded px-3 py-2 hover:bg-bg">{l.label}</a></li>)}
+        </ul>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Show the icon for the theme the button switches to. */
+  :global([data-theme="dark"]) .light-icon { display: none; }
+  :global([data-theme="dark"]) .dark-icon { display: block; }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .light-icon { display: none; }
+    :global(:root:not([data-theme="light"])) .dark-icon { display: block; }
+  }
+</style>
+
+<script>
+  const root = document.documentElement;
+
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    const next = getComputedStyle(root).colorScheme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+  });
+
+  // Keep the reader's place when switching language: point the link at the section in view.
+  const langLink = document.querySelector<HTMLAnchorElement>("[data-lang-switch]");
+  const sections = document.querySelectorAll<HTMLElement>("main section[id]");
+  if (langLink && "IntersectionObserver" in window) {
+    const base = langLink.href.split("#")[0];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) langLink.href = `${base}#${entry.target.id}`;
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+    sections.forEach((s) => observer.observe(s));
+  }
+
+  // Close the mobile menu after picking a section.
+  document.querySelectorAll("details a").forEach((a) =>
+    a.addEventListener("click", () => a.closest("details")?.removeAttribute("open")),
+  );
+</script>
