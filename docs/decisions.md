@@ -14,7 +14,7 @@ Each decision records what was chosen, why, and what would make us reconsider it
 
 **Why.**
 - Ships plain HTML and CSS, with JavaScript only for the parts that need it. That makes the 50 KB budget easy to meet.
-- Built-in i18n routing gives `/` and `/ar/` as separate, indexable pages.
+- Built-in i18n routing gives each language its own indexable pages (URL layout in D10).
 - Content collections hold projects, services and experience as typed data files with a schema. Content stays separate from layout, and per-project pages can be added later.
 - Built-in image optimization, sitemap support and page transitions.
 - Cloudflare acquired Astro in January 2026, and Astro remains MIT-licensed. Deploying to Cloudflare is first-class, and GitHub Pages also works.
@@ -81,3 +81,18 @@ A package may be added only if it does something we can't do reasonably in a few
 **Status:** Accepted.
 
 The Veracode-inspired React redesign is committed on the `prototype-v1` branch. It's not approved design and won't be merged. Reuse ideas from it freely: section order, the animated "pipeline" hero preview, the services menu, and the content split between data and translations.
+
+## D10 — Arabic at the root, English at `/en/`
+
+**Date:** 2026-10-28. **Status:** Accepted.
+
+**Context.** The first plan put English at `/` and Arabic at `/ar/`. In the content phase the main audience became clients in the Gulf, mostly reading Arabic. Abdullah also wants a link with "en" in it to send to English readers.
+
+**Decision.** Arabic is the default locale and lives at `/`. English lives at `/en/`. Each page links to its other-language version with `hreflang`, and `x-default` points to the Arabic page. No automatic redirect by browser language.
+
+**Why.**
+- The main audience lands on their language with no extra step, and `/en/` is a clear link to share with English readers.
+- Both URLs are fixed and static, so they work the same on GitHub Pages and on Cloudflare, with no server logic.
+- Redirecting by browser language is unreliable (many Gulf users have English browsers), can hide a version from search engines, and needs a server or JavaScript.
+
+**Reconsider if** most visitors turn out to be English readers.

@@ -6,29 +6,31 @@ Status: planning. The identity and visual design below are still open. See [road
 
 ## Owner
 
-- Software Industry & Multimedia student at the Faculty of Science, Alexandria University. Expected to graduate in 2027.
-- Work so far: automation and AI workflows (n8n, Python), content and YouTube scripting, AI voiceover, and project and financial operations.
-- Skills and experience have grown since the first version of the site. The full inventory gets collected in the content phase ([content.md](content.md)).
+- Builds internal systems for businesses: management portals, self-updating dashboards and reporting, automation, and websites for organizations.
+- Works remotely in content operations and growth for a professional consulting firm, and takes system projects on a project basis.
+- Long-term aim: products and subscription tools that earn independently of hours worked. The portal built for an online academy is a candidate for the first one.
+- What the site leaves out or limits (client names, AI, the city; education only in About) is listed in [content.md](content.md#0-ground-rules-from-abdullah-2026-10-28).
 
 ## What the site is for
 
-1. **Get hired or commissioned.** A recruiter or client should understand what Abdullah does and how to get in touch in under a minute.
-2. **Show proof.** Real projects, each with what it does, what it was built with, and a link or demo where possible.
+1. **Get commissioned.** A business owner should understand what Abdullah builds and how to start a project in under a minute.
+2. **Show proof.** Real projects, each with the problem, what was built, and what it changed.
 3. **Make a strong first impression.** The site itself is a work sample. It should feel crafted, fast and smooth.
 
 ## Audience
 
-- Recruiters and hiring managers, mostly on desktop and in English.
-- Freelance clients in Egypt and the Gulf, often on mobile and often in Arabic.
+- **Clients first:** business owners and organizations that need a system for their work, such as an academy or a clinic. Mostly in the Gulf, often on mobile and often in Arabic.
+- **Companies hiring second:** they may offer a remote role, and they're more often on desktop and in English.
 - Fellow developers who open the source on GitHub.
 
 ## Requirements
 
-- **Bilingual.** English and Arabic, each at its own URL (`/` and `/ar/`), with full RTL support and `hreflang` links between the two. Arabic is first-class, not a translation afterthought.
-- **Content separated from layout.** Adding a project or a skill means editing a content file, never a component.
+- **Bilingual.** Arabic and English, each at its own URL (`/` for Arabic, `/en/` for English, see D10), with full RTL support and `hreflang` links between the two. Arabic is first-class, not a translation afterthought.
+- **Content separated from layout.** Adding, removing or rewording a project, service or role means editing one content file, never a component. Nothing is written twice: each fact lives in one place and the pages read it from there.
+- **Site settings in one file.** Availability (on or off, with an optional note per language), contact links, the CV and the main call to action change there without touching code.
 - **Light and dark themes.** It follows the system setting and remembers a manual choice.
 - **Downloadable CV** in both languages if available.
-- **Easy contact.** WhatsApp, email, LinkedIn and GitHub, one tap away.
+- **Easy contact.** WhatsApp is the main call to action. Email, LinkedIn and GitHub are one tap away.
 - **SEO and sharing.** Real HTML at load, page titles and descriptions per language, Open Graph image, sitemap.
 
 ## Quality bar

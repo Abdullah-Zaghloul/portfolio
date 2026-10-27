@@ -17,6 +17,16 @@ Work goes in this order: content first, then the technical rebuild, then identit
 
 Collect and write everything the site will say, in English and Arabic. The checklist and the open questions are in [content.md](content.md).
 
+Progress (2026-10-28):
+- [x] Ground rules, positioning, audience and services agreed
+- [x] Old content reviewed and cut; new experience and projects drafted in both languages
+- [x] URL layout decided (D10: Arabic at `/`, English at `/en/`)
+- [ ] Abdullah reviews the drafts in content.md, sections 1 to 5
+- [ ] About: approve the extra content, the graduation year question, and the photo
+- [ ] Collect the founder's testimonial and the portal screenshots (for the mockup)
+- [ ] Write the site copy (navigation, buttons, footer)
+- [ ] Rewrite the CV in English and Arabic
+
 **Exit:** every section in content.md is marked done, with no placeholders or invented numbers left.
 
 ## Phase 3 — Rebuild foundation
@@ -25,7 +35,7 @@ A working Astro site with real content and a plain, temporary design.
 
 - [ ] Scaffold Astro with TypeScript and Tailwind v4, and remove the old React/Vite code
 - [ ] Content collections and schemas for services, projects, experience and site settings
-- [ ] i18n routing (`/` and `/ar/`), RTL, language switcher that keeps the current section
+- [ ] i18n routing (`/` Arabic, `/en/` English, per D10), RTL, language switcher that keeps the current section
 - [ ] Theme toggle (system default plus remembered choice, no flash on load)
 - [ ] SEO: per-language titles and descriptions, `hreflang`, Open Graph image, sitemap, `robots.txt`
 - [ ] Icons inlined at build time, self-hosted fonts
