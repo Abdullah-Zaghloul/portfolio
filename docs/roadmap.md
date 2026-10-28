@@ -2,7 +2,7 @@
 
 Work goes in this order: content first, then the technical rebuild, then identity and visual polish. Each phase ends with its exit criteria met and this file updated.
 
-**Current phase: 3 — Rebuild foundation** (built and verified locally; deploy pending). Updated 2026-10-28.
+**Current phase: 4 — Identity and design.** Updated 2026-10-28.
 
 ---
 
@@ -31,7 +31,7 @@ Deferred to after the rebuild (agreed 2026-10-28): the profile photo, the founde
 
 **Exit:** met on 2026-10-28. Every section has a working draft with no invented numbers; the deferred assets have placeholders.
 
-## Phase 3 — Rebuild foundation
+## Phase 3 — Rebuild foundation ✅
 
 A working Astro site with real content and a plain, temporary design.
 
@@ -43,7 +43,7 @@ A working Astro site with real content and a plain, temporary design.
 - [x] Icons inlined at build time, self-hosted fonts (D11)
 - [x] GitHub Actions deploy workflow; `dist/` no longer committed
 - [x] Rewrite README for the new stack
-- [ ] Merge `rebuild` into `main` and switch the repo's Pages source to GitHub Actions (waiting for Abdullah's go-ahead)
+- [x] Merged into `main` and live on GitHub Pages, deployed by GitHub Actions (2026-10-28)
 
 Temporary in this phase: the font, the colors, the OG image (`public/og.png`, English text only) and the favicon. The identity phase replaces them. The old CV is still in `public/` but no longer linked; the CV buttons stay hidden until the new CVs exist.
 

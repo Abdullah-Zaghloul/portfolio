@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-The personal portfolio of Abdullah Zaghloul, bilingual (English/Arabic). It's being rebuilt from scratch on Astro.
+The personal portfolio of Abdullah Zaghloul, bilingual (English/Arabic). Built with Astro.
 
 ## Start here
 
@@ -11,9 +11,12 @@ The personal portfolio of Abdullah Zaghloul, bilingual (English/Arabic). It's be
 
 ## State of the repo
 
-- `main` still holds the old React + Vite site. It's what is live on GitHub Pages, deployed with `npm run deploy`.
-- `rebuild` is the working branch for the Astro rebuild and holds the docs.
+- `main` holds the Astro site and is what's live at https://abdullah-zaghloul.github.io/portfolio/. Every push to `main` deploys through GitHub Actions (`.github/workflows/deploy.yml`).
+- `rebuild` is the working branch. Merge it into `main` to publish.
 - `prototype-v1` holds a Veracode-inspired React redesign. It's a reference only and won't be merged.
+- `gh-pages` holds the old site's build output and is no longer used.
+- Content lives in `src/content/` (YAML, one value per language) and site copy in `src/i18n/ui.ts`. See README.md.
+- Run `npm run build` before committing: it type-checks and validates the content.
 
 ## Working with the user
 
